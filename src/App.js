@@ -1,8 +1,23 @@
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
+import Services from './pages/Services';
+import { Route, Routes } from 'react-router-dom';
+
 function App() {
   return (
     <div className="">
-      <h2 className="text-3xl text-center text-red-700 font-bold">This is my clean-co website</h2>
-      <button class="btn btn-primary">Button</button>
+      <Navbar>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/contact" element={<Contact></Contact>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/service" element={<Services></Services>}></Route>
+        </Routes>
+      </Navbar>
     </div>
   );
 }
