@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import PrivateRoute from './Authentication/PrivetRoute';
 import Services from './pages/Services';
 import About from './pages/About';
+import AdminRoute from './Authentication/AdminRoute';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
 
@@ -25,6 +27,10 @@ function App() {
             <Route path='/services' element={<Services></Services>}></Route>
             <Route path='/about' element={<About></About>}></Route>
                     {/* more privet route here  */}
+          </Route>
+          {/* admin route  */}
+          <Route element={<AdminRoute />}>
+            <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
           </Route>
         </Routes>
       </Navbar>

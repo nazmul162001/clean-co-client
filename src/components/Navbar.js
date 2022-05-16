@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import admin from '../hooks/useAdmin';
 
 const Navbar = ({ children }) => {
   const [dark, setDark] = useState(false);
@@ -9,6 +10,13 @@ const Navbar = ({ children }) => {
       <div class="drawer-content flex flex-col">
         {/* <!-- Navbar --> */}
         <div class="w-full navbar bg-base-100 px-0 md:px-20 sticky top-0 my-5 z-50">
+        {/* <label for="my-drawer-2" class="btn btn-primary ">Open drawer</label> */}
+
+        <label for="my-drawer-2" tabindex="0" class="btn btn-ghost btn-circle drawer-button lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+        
+        
           <div class="flex-1 px-2 mx-2 text-2xl">Clean Co</div>
           <div class="flex-none lg:hidden">
             <label for="my-drawer-3" class="btn btn-square btn-ghost">
@@ -34,6 +42,13 @@ const Navbar = ({ children }) => {
                   Home
                 </NavLink>
               </li>
+              {admin && (
+                <li>
+                  <NavLink to="/dashboard" className="rounded-lg">
+                    Dashboard
+                  </NavLink>
+                </li>
+              )}
               <li>
                 <NavLink to="/about" className="rounded-lg">
                   About
@@ -105,6 +120,11 @@ const Navbar = ({ children }) => {
           <li>
             <NavLink to="/" className="rounded-lg">
               Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard" className="rounded-lg">
+              Dashboard
             </NavLink>
           </li>
           <li>
